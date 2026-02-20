@@ -1,0 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: openjdk-21
+  namespace: {{ .Values.openshiftProject }}
+  labels:
+    # These labels connect this resource to the application lifecycle
+    app.kubernetes.io/name: {{ .Values.appName }}
+    app.kubernetes.io/version: {{ .Values.image.tag }}
+spec:
+  dockerImageRepository: registry.access.redhat.com/ubi9/openjdk-21
+  lookupPolicy:
+    local: true

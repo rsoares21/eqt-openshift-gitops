@@ -1,0 +1,22 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.openshiftProject }}
+  annotations:
+    app.openshift.io/vcs-uri: {{ .Values.git.repoURL | quote }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.appName }}
+    app.kubernetes.io/managed-by: quarkus
+    app.openshift.io/runtime: quarkus
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: "{{ .Values.appName }}:latest"
+  source:
+    binary: {}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: src/main/docker/Dockerfile.jvm

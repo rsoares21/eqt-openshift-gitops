@@ -1,0 +1,16 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.openshiftProject }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.appName }}
+    app.kubernetes.io/version: {{ .Values.image.tag }}
+    app.kubernetes.io/managed-by: quarkus
+    app.openshift.io/runtime: quarkus
+  annotations:
+    app.openshift.io/vcs-uri: {{ .Values.git.repoURL | quote }}
+    app.quarkus.io/vcs-uri: {{ .Values.git.repoURL | quote }}
+spec:
+  lookupPolicy:
+    local: true

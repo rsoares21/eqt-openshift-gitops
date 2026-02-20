@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.openshiftProject }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.appName }}
+    app.kubernetes.io/version: {{ .Values.image.tag }}
+    app.kubernetes.io/managed-by: quarkus
+    app.openshift.io/runtime: quarkus
+  annotations:
+    app.openshift.io/vcs-uri: {{ .Values.git.repoURL | quote }}
+    app.quarkus.io/vcs-uri: {{ .Values.git.repoURL | quote }}
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: {{ .Values.appName }}
+    app.kubernetes.io/version: {{ .Values.image.tag }}
+  type: ClusterIP
