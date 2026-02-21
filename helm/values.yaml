@@ -16,7 +16,7 @@ image:
   # The name of the image to build. The part after the slash should match the pom.xml <artifactId>.
   name: "rsoares21/eqt-poc-quarkus"
   # The tag of the image to build.
-  tag: "74279b2d4061a7227b536119b14a5fdf033e6bbd"
+  tag: "9e5dd48fd4538c273ae91d2e051be84ea4764c1e"
   # The URL of the container registry.
   # For OpenShift internal registry, use: "image-registry.openshift-image-registry.svc:5000"
   registryURL: "image-registry.openshift-image-registry.svc:5000"
@@ -24,5 +24,6 @@ image:
 argoCD:
   # The namespace where ArgoCD is running.
   namespace: "openshift-gitops"
+
 
 
