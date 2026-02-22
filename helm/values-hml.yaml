@@ -11,7 +11,7 @@ openshiftProject: "eqt-poc-quarkus-hml"
 git:
   #repoURL: "https://repositorio.equatorial.corp/equatorial/gmz/eqt-poc-quarkus.git"
   repoURL: "https://github.com/rsoares21/eqt-poc-quarkus.git"
-  targetRevision: "main"
+  targetRevision: "homolog"
 # --- Container Image Configuration ---
 image:
   # The name of the image to build. The part after the slash should match the pom.xml <artifactId>.
