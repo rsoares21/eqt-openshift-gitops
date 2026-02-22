@@ -17,7 +17,7 @@ image:
   # The name of the image to build. The part after the slash should match the pom.xml <artifactId>.
   name: "rsoares21/eqt-poc-quarkus"
   # The tag of the image to build.
-  tag: "348ac43"
+  tag: "e017631"
   # The URL of the container registry.
   # For OpenShift internal registry, use: "image-registry.openshift-image-registry.svc:5000"
   registryURL: "image-registry.openshift-image-registry.svc:5000"
